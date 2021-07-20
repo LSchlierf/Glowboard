@@ -240,19 +240,19 @@ void runAnimation() {
 
     case 1: //highlight red
 
-      drawStrip(1);
+      drawStrip(255, 0, 0);
 
       break;
 
     case 2: //highlight green
 
-      drawStrip(2);
+      drawStrip(0, 255, 0);
 
       break;
 
     case 3: //highlight blue
 
-      drawStrip(3);
+      drawStrip(0, 0, 255);
 
       break;
 
@@ -283,7 +283,7 @@ void runAnimation() {
 
       booster.setHSV(color, 255, 255);
 
-      drawStrip(0);
+      drawStrip(0, 0, 0);
 
       break;
 
@@ -345,19 +345,9 @@ void runAnimation() {
 
 }
 
-void drawStrip(int colormode) {
-  switch (colormode) {
-    case 1:
-      booster.setRGB(255, 0, 0);
-      break;
-
-    case 2:
-      booster.setRGB(0, 255, 0);
-      break;
-
-    case 3:
-      booster.setRGB(0, 0, 255); 
-      break;
+void drawStrip(int redmode, int bluemode, int greenmode) {
+  if (bool(redmode + bluemode + greenmode)) {
+    booster.setRGB(redmode, greenmode, bluemode);
   }
 
   pixel0 = abs(position);

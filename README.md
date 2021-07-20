@@ -28,7 +28,7 @@ Every connection to the nano can be configured at the top of the code.
 The data pin of the hall effect sensor needs to be pulled up (connected to Vcc via a resistor), and the button pin needs to be pulled down (connected to gnd via a resistor).
 Info on how to connect the booster to the nano can be found here: https://www.led-genial.de/mediafiles/Sonstiges/digi-dot-booster.pdf on page 2.
 (PDF is in german, I couldn't find an english one)
-Don't forget to use a 470Ω resitior between the booster's "ws2812b" pin and the LEDs' din pin.
+Don't forget to use a 470Ω resistor between the booster's "ws2812b" pin and the LEDs' "din" pin and a 1000 μF capacitor across Vdd and gnd.
 
 
 Please let me know if you attempt this project, I'm really excited about other people doing it. Also let me know if I can be of any help.

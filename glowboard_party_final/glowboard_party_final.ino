@@ -133,13 +133,6 @@ void forward() {
 
 void checkTime() {
 
-/*
-  if (mode > 0) {
-    runAnimation();
-    return;
-  }
-*/
-
   timepassed = millis() - lasttime;
 
   switch (mode) {
@@ -247,70 +240,19 @@ void runAnimation() {
 
     case 1: //highlight red
 
-      pixel0 = abs(position);
-      if (pixel0 > last) {
-        pixel0 -= LED_COUNT;
-      }
-      pixel1 = pixel0 + length;
-      if (pixel1 > last) {
-        pixel1 -= LED_COUNT;
-      }
-
-      booster.setRGB(255, 0, 0);
-
-      if (pixel0 < pixel1) {
-        booster.setRange(pixel0, pixel1);
-      }
-      else {
-        booster.setRange(pixel0, last);
-        booster.setRange(0, pixel1);
-      }
+      drawStrip(1);
 
       break;
 
     case 2: //highlight green
 
-      pixel0 = abs(position);
-      if (pixel0 > last) {
-        pixel0 -= LED_COUNT;
-      }
-      pixel1 = pixel0 + length;
-      if (pixel1 > last) {
-        pixel1 -= LED_COUNT;
-      }
-
-      booster.setRGB(0, 255, 0);
-
-      if (pixel0 < pixel1) {
-        booster.setRange(pixel0, pixel1);
-      }
-      else {
-        booster.setRange(pixel0, last);
-        booster.setRange(0, pixel1);
-      }
+      drawStrip(2);
 
       break;
 
     case 3: //highlight blue
 
-      pixel0 = abs(position);
-      if (pixel0 > last) {
-        pixel0 -= LED_COUNT;
-      }
-      pixel1 = pixel0 + length;
-      if (pixel1 > last) {
-        pixel1 -= LED_COUNT;
-      }
-
-      booster.setRGB(0, 0, 255);
-
-      if (pixel0 < pixel1) {
-        booster.setRange(pixel0, pixel1);
-      }
-      else {
-        booster.setRange(pixel0, last);
-        booster.setRange(0, pixel1);
-      }
+      drawStrip(3);
 
       break;
 
@@ -334,15 +276,6 @@ void runAnimation() {
 
     case 5: //color changing highlights
 
-      pixel0 = abs(position);
-      if (pixel0 > last) {
-        pixel0 -= LED_COUNT;
-      }
-      pixel1 = pixel0 + length;
-      if (pixel1 > last) {
-        pixel1 -= LED_COUNT;
-      }
-
       color++;
       if (color > 359) {
         color = 0;
@@ -350,13 +283,7 @@ void runAnimation() {
 
       booster.setHSV(color, 255, 255);
 
-      if (pixel0 < pixel1) {
-        booster.setRange(pixel0, pixel1);
-      }
-      else {
-        booster.setRange(pixel0, last);
-        booster.setRange(0, pixel1);
-      }
+      drawStrip(0);
 
       break;
 
@@ -416,4 +343,37 @@ void runAnimation() {
 
   booster.show();
 
+}
+
+void drawStrip(int colormode) {
+  switch (colormode) {
+    case 1:
+      booster.setRGB(255, 0, 0);
+      break;
+
+    case 2:
+      booster.setRGB(0, 255, 0);
+      break;
+
+    case 3:
+      booster.setRGB(0, 0, 255); 
+      break;
+  }
+
+  pixel0 = abs(position);
+  if (pixel0 > last) {
+    pixel0 -= LED_COUNT;
+  }
+  pixel1 = pixel0 + length;
+  if (pixel1 > last) {
+    pixel1 -= LED_COUNT;
+  }
+
+  if (pixel0 < pixel1) {
+    booster.setRange(pixel0, pixel1);
+  }
+  else {
+    booster.setRange(pixel0, last);
+    booster.setRange(0, pixel1);
+  }
 }

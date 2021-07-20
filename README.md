@@ -2,7 +2,9 @@ This is the repo for my ground tracking underglow light effect for my longboard.
 You can find videos and pictures of it here:
 
 Videos of the effects:                    https://imgur.com/gallery/86cq9q0
+
 Pictures of the underside of the board:   https://imgur.com/gallery/5WJpUBA
+
 Videos of me riding it:                   https://imgur.com/gallery/xfXjWVt
 
 The project uses an Arduino nano which is connected to a little board called "Digi-Dot-Booster".

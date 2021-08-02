@@ -346,7 +346,7 @@ void runAnimation() {
 }
 
 void drawStrip(int redmode, int bluemode, int greenmode) {
-  if (bool(redmode + bluemode + greenmode)) {
+  if ((redmode + bluemode + greenmode) > 0) {
     booster.setRGB(redmode, greenmode, bluemode);
   }
 

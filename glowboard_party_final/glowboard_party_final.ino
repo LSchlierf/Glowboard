@@ -1,14 +1,38 @@
 #include <DDBooster.h>
 #include <EEPROM.h>
 
+//adjust the following values to fit your setup:
+
+//the length of your ws2812b strips in pixels:
 #define LED_COUNT 50
 
+//the arduino pin your mode switch is connected to:
 #define switch_pin 7
+
+//the arduino pin that the hall effect sensors data pin is connected to:
 #define hall_pin 3
-#define button_pin 2
+
+//the arduino pin your button is connected to:
+#define button_pin 2 
+
+//wheel diameter in cm:
+#define wheel_diameter 7
+
+//number of pixels per meter:
+#define pixel_density 60 
+
+//how often the hall effect sensor updates per full rotation:
+#define hall_resolution 8
+
+//how many pixels long you want the running strip to be:
+#define effect_length 10 
+
+//adjust the above values to fit your setup
+
+const float effect_increment = (pixel_density * wheel_diameter * 0.0314 / hall_resolution);
 
 int pixel0, pixel1, timer, progress, mode, lasttime, timepassed;
-const int length = 9; //make this number 1 smaller than the actual legth you want
+const int length = effect_length - 1;
 const int last = LED_COUNT - 1;
 const int slast = last - length;
 const int limit = LED_COUNT + LED_COUNT;
@@ -123,7 +147,7 @@ void shortPress() {
 
 void forward() {
 
-  position -= 1.6725;
+  position -= effect_increment;
   if (position < 0) {
     position = limit;
   }

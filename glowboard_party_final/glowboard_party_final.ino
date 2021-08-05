@@ -50,15 +50,12 @@ void setup() {
   pinMode(button_pin, INPUT);
   switchmode = digitalRead(switch_pin);
   lasttime = millis();
-  attachInterrupt(digitalPinToInterrupt(hall_pin), forward, CHANGE);
-  noInterrupts();
   runAnimation();
 }
 
 void loop() {
 
   if (digitalRead(button_pin) == HIGH) {
-
     timer = 0;
     while (digitalRead(button_pin) == HIGH) {
       delay(100);
@@ -101,14 +98,14 @@ void longPress() {
   if (mode != 0) {
     if (mode > 0) {
       EEPROM.put(ADDRESS, mode);
-      noInterrupts();
+      detachInterrupt(digitalPinToInterrupt(hall_pin));
     }
     mode = 0;
   }
   else {
-    if (digitalRead(switch_pin) == HIGH) {
+    if (digitalRead(switch_pin) == LOW) {
       EEPROM.get(ADDRESS, mode);
-      interrupts();
+      attachInterrupt(digitalPinToInterrupt(hall_pin), forward, CHANGE);
     }
     else {
       mode = -1;
@@ -133,9 +130,9 @@ void shortPress() {
     }
   }
   else {
-    if (digitalRead(switch_pin) == HIGH) {
+    if (digitalRead(switch_pin) == LOW) {
       EEPROM.get(ADDRESS, mode);
-      interrupts();
+      attachInterrupt(digitalPinToInterrupt(hall_pin), forward, CHANGE);
     }
     else {
       mode = -1;

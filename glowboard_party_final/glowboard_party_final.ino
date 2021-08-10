@@ -105,6 +105,11 @@ void longPress() {
   else {
     if (digitalRead(switch_pin) == LOW) {
       EEPROM.get(ADDRESS, mode);
+      if (mode < 1)
+      {
+        mode = 1;
+        EEPROM.put(ADDRESS, mode);
+      }
       attachInterrupt(digitalPinToInterrupt(hall_pin), forward, CHANGE);
     }
     else {
@@ -132,6 +137,11 @@ void shortPress() {
   else {
     if (digitalRead(switch_pin) == LOW) {
       EEPROM.get(ADDRESS, mode);
+      if (mode < 1)
+      {
+        mode = 1;
+        EEPROM.put(ADDRESS, mode);
+      }
       attachInterrupt(digitalPinToInterrupt(hall_pin), forward, CHANGE);
     }
     else {

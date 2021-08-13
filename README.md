@@ -1,4 +1,4 @@
-#Ground-tracking LED animations for Longboards
+# Ground-tracking LED animations for Longboards
 
 This is the repo for my ground tracking underglow light effect for my longboard. 
 You can find videos and pictures of it here:

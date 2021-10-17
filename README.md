@@ -9,6 +9,8 @@ Videos of the effects:                    https://imgur.com/gallery/86cq9q0
 
 Pictures of the underside of the board:   https://imgur.com/gallery/5WJpUBA
 
+Pictures of the new circuitry I made:     https://imgur.com/gallery/PAADjVJ
+
 Videos of me riding it:                   https://imgur.com/gallery/xfXjWVt
 
 

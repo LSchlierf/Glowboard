@@ -1,8 +1,9 @@
 # Ground-tracking LED animations for Longboards
 
+This is the repo for my ground tracking underglow light effect for my longboard. I also made a version with Bluetooth support for remotely controlling the LEDs, see [my corresponding repository](https://github.com/LSchlierf/Glowboard-Bluetooth).
+
 ## Showcase
 
-This is the repo for my ground tracking underglow light effect for my longboard.
 You can find videos and pictures of it here:
 
 [Videos of the effects](https://imgur.com/gallery/86cq9q0)
@@ -11,7 +12,7 @@ You can find videos and pictures of it here:
 
 [Pictures of the second curcuitry I made](https://imgur.com/gallery/PAADjVJ)
 
-[Pictures of the third curcuitry I made](https://imgur.com/gallery/vMbaO5J) (With Bluetooth support, coming soon!)
+[Pictures of the third curcuitry I made](https://imgur.com/gallery/vMbaO5J) (with Bluetooth support)
 
 [Videos of me riding it](https://imgur.com/gallery/xfXjWVt)
 
